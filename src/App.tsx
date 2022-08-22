@@ -4,12 +4,13 @@ import './App.css';
 import { Provider } from 'react-redux';
 
 import store from './state/store'
+import TodoList from './TodoList';
 
 function App() {
   return (
     <StrictMode>
       <Provider store={store}>
-        <></>
+        <TodoList></TodoList>
       </Provider>
     </StrictMode>
   );
