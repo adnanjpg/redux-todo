@@ -1,9 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { randomUUID } from "crypto"
 import ITodo from "../Iinterfaces/ITodo"
 
 import { v4 as uuidv4 } from 'uuid'
-import { isCallChain } from "typescript"
 
 interface ITodoSliceState {
     todos: ITodo[]
@@ -38,6 +36,7 @@ const slc = createSlice({
                             ...e,
                             iscompleted: action.payload.iscompleted
                         }
+
                     return e
                 })
             ]

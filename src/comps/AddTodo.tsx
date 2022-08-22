@@ -7,7 +7,6 @@ export default () => {
 
     const dispatch = useDispatch()
 
-
     const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
     }
