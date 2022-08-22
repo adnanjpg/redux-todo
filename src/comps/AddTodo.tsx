@@ -16,6 +16,8 @@ export default () => {
         event.preventDefault()
 
         dispatch(addTodo(name))
+
+        setName('')
     }
 
     return <form onSubmit={onSubmit}>
