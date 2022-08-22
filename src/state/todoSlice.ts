@@ -40,10 +40,15 @@ const slc = createSlice({
                     return e
                 })
             ]
+        },
+        removeTodo: (state, action: PayloadAction<string>) => {
+            state.todos = [
+                ...state.todos.filter(e => e.id != action.payload)
+            ]
         }
     }
 })
 
 export default slc
 
-export const { addTodo, toggleTodo } = slc.actions
+export const { addTodo, toggleTodo, removeTodo } = slc.actions

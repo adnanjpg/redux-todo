@@ -1,6 +1,7 @@
+import React from "react"
 import { useDispatch } from "react-redux"
 import ITodo from "../Iinterfaces/ITodo"
-import { toggleTodo } from "../state/todoSlice"
+import { removeTodo, toggleTodo } from "../state/todoSlice"
 
 const TodoItem: React.FC<ITodo> = (todo) => {
     const dispatch = useDispatch()
@@ -14,6 +15,10 @@ const TodoItem: React.FC<ITodo> = (todo) => {
         }))
     }
 
+    const onDeleteClick = () => {
+        dispatch(removeTodo(todo.id))
+    }
+
     return <div key={todo.id}>
         {todo.name}
         <input
@@ -21,6 +26,7 @@ const TodoItem: React.FC<ITodo> = (todo) => {
             checked={todo.iscompleted}
             onChange={toggleChecked}
         ></input>
+        <button onClick={onDeleteClick}>DELETE</button>
     </div>
 }
 
