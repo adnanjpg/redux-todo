@@ -1,21 +1,25 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { randomUUID } from "crypto"
 import ITodo from "../Iinterfaces/ITodo"
+
+import { v4 as uuidv4 } from 'uuid'
 
 interface ITodoSliceState {
     todos: ITodo[]
 }
 
-const initState: ITodoSliceState = {
+const initialState: ITodoSliceState = {
     todos: []
 }
 
 const slc = createSlice({
     name: 'todo',
-    initialState: initState,
+    initialState: initialState,
     reducers: {
-        add: (state, action: PayloadAction<string>) => {
+        addTodo: (state, action: PayloadAction<string>) => {
+
             let newTodo: ITodo = {
-                id: '1',
+                id: uuidv4(),
                 iscompleted: false,
                 name: action.payload,
             }
@@ -30,4 +34,4 @@ const slc = createSlice({
 
 export default slc
 
-export const { add } = slc.actions
+export const { addTodo } = slc.actions

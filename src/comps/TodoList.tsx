@@ -1,8 +1,8 @@
 import { useReducer } from "react"
 import { useSelector } from "react-redux"
-import { selectTodos } from "./state/store"
+import { selectTodos } from "../state/store"
 
-import ITodo from "./Iinterfaces/ITodo"
+import ITodo from "../Iinterfaces/ITodo"
 import React from "react"
 
 const TodoItem: React.FC<ITodo> = (todo) => {
