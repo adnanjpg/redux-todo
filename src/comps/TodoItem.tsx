@@ -6,12 +6,12 @@ import { removeTodo, toggleTodo } from "../state/todoSlice"
 const TodoItem: React.FC<ITodo> = (todo) => {
     const dispatch = useDispatch()
 
-    const toggleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.persist()
+    const toggleChecked = () => {
+        let isc = todo.iscompleted
 
         dispatch(toggleTodo({
             id: todo.id,
-            iscompleted: event.target.checked
+            iscompleted: !isc
         }))
     }
 
@@ -19,13 +19,8 @@ const TodoItem: React.FC<ITodo> = (todo) => {
         dispatch(removeTodo(todo.id))
     }
 
-    return <div key={todo.id}>
+    return <div key={todo.id} className={todo.iscompleted ? "line-through" : ""} onClick={toggleChecked}>
         {todo.name}
-        <input
-            type="checkbox"
-            checked={todo.iscompleted}
-            onChange={toggleChecked}
-        ></input>
         <button onClick={onDeleteClick}>DELETE</button>
     </div>
 }
