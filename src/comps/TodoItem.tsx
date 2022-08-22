@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux"
 import ITodo from "../Iinterfaces/ITodo"
 import { removeTodo, toggleTodo } from "../state/todoSlice"
 
+import { FaTimes } from "react-icons/fa"
+
 const TodoItem: React.FC<ITodo> = (todo) => {
     const dispatch = useDispatch()
 
@@ -21,7 +23,9 @@ const TodoItem: React.FC<ITodo> = (todo) => {
 
     return <div key={todo.id} className={todo.iscompleted ? "line-through" : ""} onClick={toggleChecked}>
         {todo.name}
-        <button onClick={onDeleteClick}>DELETE</button>
+        <button onClick={onDeleteClick}>
+            <FaTimes></FaTimes>
+        </button>
     </div>
 }
 
