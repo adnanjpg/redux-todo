@@ -4,12 +4,8 @@ import { selectTodos } from "../state/store"
 
 import ITodo from "../Iinterfaces/ITodo"
 import React from "react"
+import TodoItem from "./TodoItem"
 
-const TodoItem: React.FC<ITodo> = (todo) => {
-    return <div key={todo.id}>
-        {todo.name}
-    </div>
-}
 
 export default () => {
     let todos = useSelector(selectTodos)

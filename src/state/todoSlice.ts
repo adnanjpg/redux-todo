@@ -3,6 +3,7 @@ import { randomUUID } from "crypto"
 import ITodo from "../Iinterfaces/ITodo"
 
 import { v4 as uuidv4 } from 'uuid'
+import { isCallChain } from "typescript"
 
 interface ITodoSliceState {
     todos: ITodo[]
@@ -29,9 +30,21 @@ const slc = createSlice({
                 newTodo
             ]
         },
+        toggleTodo: (state, action: PayloadAction<{ id: string, iscompleted: boolean }>) => {
+            state.todos = [
+                ...state.todos.map(e => {
+                    if (e.id == action.payload.id)
+                        return {
+                            ...e,
+                            iscompleted: action.payload.iscompleted
+                        }
+                    return e
+                })
+            ]
+        }
     }
 })
 
 export default slc
 
-export const { addTodo } = slc.actions
+export const { addTodo, toggleTodo } = slc.actions
