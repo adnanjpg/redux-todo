@@ -1,5 +1,4 @@
 import React, { StrictMode } from 'react';
-import './App.css';
 import { Provider } from 'react-redux';
 
 import store from './state/store'
@@ -8,13 +7,21 @@ import AddTodo from './comps/AddTodo';
 
 function App() {
   return (
-    <StrictMode>
-      <Provider store={store}>
-        <AddTodo></AddTodo>
-        <TodoList></TodoList>
-      </Provider>
-    </StrictMode>
+    <div className='text-center'>
+      <AddTodo></AddTodo>
+      <TodoList></TodoList>
+    </div>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        <App></App>
+      </Provider>
+    </StrictMode >
+  )
+}
+
+export default AppWrapper;

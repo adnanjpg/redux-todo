@@ -23,8 +23,11 @@ export default () => {
         <input
             value={name}
             onChange={onNameChange}
+            className="border"
         ></input>
-        <button type="submit">
+        <button type="submit"
+            className="bg-cyan-300 px-4 py-1"
+        >
             Add
         </button>
     </form>
